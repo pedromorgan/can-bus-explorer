@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 """ Script to pack a sinewave into can.
 """
 
 import argparse
-from can_link import make_can_link, CanMessage
+from .can_link import make_can_link, CanMessage
 import struct
 import time
 import math

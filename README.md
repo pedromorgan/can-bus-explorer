@@ -1,6 +1,9 @@
+CAN Bus Explorer
+============================
+
 
 This is a set of utilities to inspect and debug the CAN bus. Via a graphical user
-interface you can gain insight into what is happening.
+interface you can gain insight into what is happening. Runs on python3/PyQt5/PySide2
 
 Screenshot: TODO
 

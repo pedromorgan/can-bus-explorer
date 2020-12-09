@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 """ Utility to send a can message. """
 
 
 import argparse
-from can_link import make_can_link, CanMessage
+from .can_link import make_can_link, CanMessage
 
 
 def main():

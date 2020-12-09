@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """ CAN bus explorer GUI.
 
 A PyQt5 based CAN bus explorer utility.
@@ -6,29 +8,19 @@ A PyQt5 based CAN bus explorer utility.
 
 import argparse
 import sys
-import datetime
 
-use_pyqt = False
+from qt import QtCore, QtWidgets, Qt, pyqtSignal
 
-if use_pyqt:
-    from PyQt5 import QtCore, QtWidgets, QtGui
-    from PyQt5.QtCore import Qt
-    from PyQt5.QtCore import pyqtSignal as Signal
-
-    # from PyQt5.QtCore import pyqtProperty as Property
-else:
-    from PySide2 import QtCore, QtWidgets, QtGui
-    from PySide2.QtCore import Qt
-    from PySide2.QtCore import Signal
 
 import logging
 from can_link import CanMessage, make_can_link
 
-if not use_pyqt:
-    from busload import BusLoadWidget
+#if not use_pyqt:
+#    from can_bus_explorer.busload import BusLoadWidget
 
 logger = logging.getLogger("can-explorer")
 
+use_pyqt = True
 
 class AbstractMessageModel(QtCore.QAbstractTableModel):
     """ An abstract model for messages.
@@ -113,8 +105,7 @@ class AbstractMessageModel(QtCore.QAbstractTableModel):
         r = 255 * percent
         g = 255 * percent
         b = 255
-        color = QtGui.QColor(r, g, b)
-        return color
+        return QtGui.QColor(r, g, b)
 
 
 class LastMessageModel(AbstractMessageModel):
@@ -198,9 +189,9 @@ class CanConnection(QtCore.QObject):
     Use this class to communicate over CAN.
     """
 
-    connection_opened = Signal(bool)
-    connection_closed = Signal(bool)
-    message_received = Signal(CanMessage)
+    connection_opened = pyqtSignal(bool)
+    connection_closed = pyqtSignal(bool)
+    message_received = pyqtSignal(CanMessage)
 
     def __init__(self, can_link):
         super().__init__()

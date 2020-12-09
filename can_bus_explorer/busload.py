@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 """ Qt Widget which can view the busload in a graph.
 """
 

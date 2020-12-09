@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """ Simple can dump utility. """
 
 import argparse

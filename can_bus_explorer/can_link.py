@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """ Abtraction around different CAN interfaces.
 """
 
@@ -7,8 +9,6 @@ import socket
 import threading
 import logging
 import queue
-
-import can_errors
 
 logger = logging.getLogger("can-explorer")
 

@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+
 """ Socket can error handling defines / routines.
 
 See also: /usr/include/linux/can/error.h
 
 """
+
 
 
 def message_to_errors(message):
